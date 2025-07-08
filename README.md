@@ -42,11 +42,39 @@ This project simulates a networked collaborative document editing environment wi
 ### Example Write Flow
 
 ```
-Client> write report 2  
-[OK] You may now write. End with `<END>`  
-Client> This is new content for section 2.  
-Client> <END>  
-[OK] Section updated.
+Client> create diary 2 "morning" "evening"
+[OK] Document created.
+
+Client> write diary morning
+[OK] You can start writing. Send <END> to finish.
+>> I woke up early and had coffee.
+>> Then I went for a walk in the park.
+>> <END>
+[Write_Completed]
+
+Client> write diary evening
+[OK] You can start writing. Send <END> to finish.
+>> Cooked dinner and watched a movie.
+>> Went to bed early.
+>> <END>
+[Write_Completed]
+
+Client> read diary morning
+diary
+    1. morning
+       I woke up early and had coffee.
+       Then I went for a walk in the park.
+__END__
+
+Client> read diary evening
+diary
+    2. evening
+       Cooked dinner and watched a movie.
+       Went to bed early.
+__END__
+
+Client> bye
+[Disconnected]
 ```
 
 ## Directory Structure
