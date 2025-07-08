@@ -89,7 +89,7 @@ gcc -o client client.c
 
 > Example:
 ```bash
-./server 12345
+./server 127.0.0.1 12345
 ./client 127.0.0.1 12345
 ```
 
