@@ -1,0 +1,43 @@
+# Example Session: Shared Document System with Section Titles
+
+# Terminal 1 (Server)
+$ ./server 127.0.0.1 12345
+[Server] Listening on 127.0.0.1:12345...
+
+# Terminal 2 (Client)
+$ ./client 127.0.0.1 12345
+[Client] Connected to server.
+
+> create diary 2 "morning" "evening"
+[OK] Document created.
+
+> write diary morning
+[OK] You can start writing. Send <END> to finish.
+>> Woke up early and took a walk.
+>> Had a healthy breakfast.
+>> <END>
+[Write_Completed]
+
+> write diary evening
+[OK] You can start writing. Send <END> to finish.
+>> Read a book and relaxed at home.
+>> Prepared for tomorrow’s meeting.
+>> <END>
+[Write_Completed]
+
+> read diary morning
+diary
+    1. morning
+       Woke up early and took a walk.
+       Had a healthy breakfast.
+__END__
+
+> read diary evening
+diary
+    2. evening
+       Read a book and relaxed at home.
+       Prepared for tomorrow’s meeting.
+__END__
+
+> bye
+[Disconnected]
