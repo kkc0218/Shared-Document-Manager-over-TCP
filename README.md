@@ -4,7 +4,7 @@
 
 > A TCP-based shared document system implementing **Multiple Readers - Single Writer** concurrency control. This project demonstrates socket programming, thread synchronization, and basic document management over the network.
 
-## 📚 Project Overview
+## Project Overview
 
 This project simulates a networked collaborative document editing environment with the following core features:
 
@@ -13,7 +13,7 @@ This project simulates a networked collaborative document editing environment wi
 - **Multiple reads are allowed concurrently**, but **only one client can write** to a document section at a time.
 - Writes are **synchronized** using `mutex` and `condition variables` to avoid race conditions.
 
-## 🔧 Components
+## Components
 
 ### `server.c`
 
@@ -30,7 +30,7 @@ This project simulates a networked collaborative document editing environment wi
 - Sends user-input commands to the server line-by-line.
 - Handles server responses until receiving `<END>` as a terminator for multi-line messages.
 
-## 🧪 Features & Commands
+## Features & Commands
 
 | Command            | Description                                 |
 |--------------------|---------------------------------------------|
@@ -49,7 +49,7 @@ Client> <END>
 [OK] Section updated.
 ```
 
-## 📁 Directory Structure
+## Directory Structure
 
 ```
 .
@@ -58,7 +58,7 @@ Client> <END>
 ├── README.md        // Project overview and documentation
 ```
 
-## 🧵 Thread Synchronization
+## Thread Synchronization
 
 - Each section maintains:
   - A **write queue** to manage write requests fairly.
@@ -66,7 +66,7 @@ Client> <END>
   - **Readers** can proceed concurrently if no writers are present.
 - Threads wait on `pthread_cond_wait()` until it's their turn to write.
 
-## ⚙️ How to Build & Run
+## How to Build & Run
 
 ### Build
 
@@ -93,20 +93,20 @@ gcc -o client client.c
 ./client 127.0.0.1 12345
 ```
 
-## 🌐 Networking Details
+## Networking Details
 
 - Communication is line-based and TCP-reliable.
 - The client sends newline-terminated strings.
 - The server uses a delimiter `<END>` to mark the end of multi-line responses (especially for `read` or write prompts).
 
-## ✅ To Do / Enhancements
+## To Do / Enhancements
 
 - [ ] Add user authentication
 - [ ] Add file persistence (saving documents to disk)
 - [ ] Add version control per section
 - [ ] Support document listing command (`list`)
 
-## 📝 License
+## License
 
 MIT License
 
