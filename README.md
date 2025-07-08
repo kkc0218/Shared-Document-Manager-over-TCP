@@ -78,7 +78,7 @@ gcc -o client client.c
 ### Run Server
 
 ```bash
-./server <port>
+./server <IP> <port>
 ```
 
 ### Run Client
