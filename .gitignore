@@ -1,0 +1,14 @@
+# Object files
+*.o
+
+# Binaries
+server
+client
+
+# OS-specific files
+.DS_Store
+
+# Editor files
+*.swp
+*.bak
+*~
